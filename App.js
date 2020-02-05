@@ -5,15 +5,31 @@
  * @format
  * @flow
  */
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+import {Button, ThemeProvider} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {Input} from 'react-native-elements';
 
+const theme = {
+  Button: {
+    raised: true,
+    titleStyle: {
+      color: 'red'
+    }
+  }
+};
 export default class HelloWorldApp extends Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, world!</Text>
-      </View>
+      <ThemeProvider theme={theme}>
+        <Input
+          placeholder='INPUT WITH CUSTOM ICON'
+          leftIcon={< Icon name = 'user' size = {
+          24
+        }
+        color = 'black' />}/>
+      </ThemeProvider>
     );
   }
 }
@@ -123,4 +139,4 @@ const styles = StyleSheet.create({
   },
 }); */
 
-export default App;
+// export default App;
