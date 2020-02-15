@@ -10,7 +10,7 @@ import {ScrollView,Text, View,TextInput} from 'react-native';
 import {Button, ThemeProvider} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input} from 'react-native-elements';
-import SQLite from 'react-native-sqlite-2';
+// import SQLite from 'react-native-sqlite-2';
 const theme = {
   Button: {
     raised: true,
@@ -19,7 +19,7 @@ const theme = {
     }
   }
 };
-const db=SQLite.openDataBase('signup.db','1.0','',1);
+// const db=SQLite.openDataBase('signup.db','1.0','',1);
 export default class HelloWorldApp extends Component {
   render() {
     return (
@@ -30,7 +30,7 @@ export default class HelloWorldApp extends Component {
       <TextInput placeholder='LastName'/>
       <TextInput placeholder='PhoneNumber'/>
       <TextInput placeholder='Address'/>
-      <Button onPress={this.props.onLoginPress} title="Submit" />
+      <Button onLoginPress={this.props.onLoginPress} title="Submit" />
       </ScrollView>
     );
   }
