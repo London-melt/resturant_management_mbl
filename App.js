@@ -6,11 +6,11 @@
  * @flow
  */
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView,Text, View,TextInput} from 'react-native';
 import {Button, ThemeProvider} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input} from 'react-native-elements';
-
+import SQLite from 'react-native-sqlite-2';
 const theme = {
   Button: {
     raised: true,
@@ -19,17 +19,19 @@ const theme = {
     }
   }
 };
+const db=SQLite.openDataBase('signup.db','1.0','',1);
 export default class HelloWorldApp extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <Input
-          placeholder='INPUT WITH CUSTOM ICON'
-          leftIcon={< Icon name = 'user' size = {
-          24
-        }
-        color = 'black' />}/>
-      </ThemeProvider>
+      <ScrollView style={{padding:20}}>
+      <Text style={{fontSize:27,textAlign:'center'}}>Sign up</Text>
+      <TextInput placeholder='UserName'/>
+      <TextInput placeholder='FirstName'/>
+      <TextInput placeholder='LastName'/>
+      <TextInput placeholder='PhoneNumber'/>
+      <TextInput placeholder='Address'/>
+      <Button onPress={this.props.onLoginPress} title="Submit" />
+      </ScrollView>
     );
   }
 }
